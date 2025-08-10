@@ -318,11 +318,12 @@ npm pkg set scripts.proto="echo 'Proto compilation not configured yet'"
 
 Let's build your first gRPC service to verify everything works!
 
-### Step 1: Define the Service (hello.proto)
+### Step 1: Define the Service
+
 {% code title="hello.proto" overflow="wrap" lineNumbers="true" %}
 
-```bash
-‌syntax = "proto3";
+```proto
+syntax = "proto3";
 
 package hello;
 
@@ -347,6 +348,9 @@ message HelloResponse {
   int64 timestamp = 2;
 }
 ```
+
+{% endcode %}
+
 
 ### Step 2: Implement the Server
 
