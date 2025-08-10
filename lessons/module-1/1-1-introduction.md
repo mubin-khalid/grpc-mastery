@@ -1,0 +1,198 @@
+# Module 1.1: Introduction to gRPC
+
+## 🚀 What is gRPC and Why Should You Care?
+
+**gRPC** stands for **Google Remote Procedure Call** (though Google now says it's a recursive acronym: "gRPC Remote Procedure Calls"). It's a high-performance, open-source framework that allows you to call functions on remote servers as if they were local functions.
+
+### Key Benefits of gRPC:
+
+**1. Performance** 🏎️
+- Uses HTTP/2 for transport (multiplexing, header compression)
+- Binary serialization with Protocol Buffers (much faster than JSON)
+- Built-in streaming capabilities
+
+**2. Language Agnostic** 🌍
+- Generate client/server code in 10+ languages from a single definition
+- Perfect for polyglot microservices environments
+
+**3. Type Safety** 🛡️
+- Strongly typed contracts via Protocol Buffers
+- Compile-time error detection
+- Auto-generated documentation
+
+**4. Built-in Features** ⚡
+- Authentication, load balancing, retries
+- Bidirectional streaming
+- Flow control and cancellation
+
+---
+
+## 🥊 gRPC vs REST vs GraphQL: The Showdown
+
+Let me show you a practical comparison:
+
+### Scenario: Getting user data with their recent orders
+
+**REST API:**
+```http
+GET /api/users/123           # First request
+GET /api/users/123/orders    # Second request (N+1 problem)
+```
+
+**GraphQL:**
+```graphql
+query {
+  user(id: "123") {
+    name
+    email
+    orders(limit: 5) {
+      id
+      total
+      status
+    }
+  }
+}
+```
+
+**gRPC:**
+```protobuf
+service UserService {
+  rpc GetUserWithOrders(UserRequest) returns (UserWithOrdersResponse);
+}
+```
+
+### When to Choose Each:
+
+| Use Case | REST | GraphQL | gRPC |
+|----------|------|---------|------|
+| **Public APIs** | ✅ Best | ✅ Good | ❌ Complex |
+| **Microservices** | ✅ Good | ❌ Overkill | ✅ **Best** |
+| **Real-time Data** | ❌ Limited | ✅ Good | ✅ **Best** |
+| **Mobile Apps** | ✅ Good | ✅ **Best** | ✅ Good |
+| **High Performance** | ❌ Limited | ❌ Limited | ✅ **Best** |
+| **Simple CRUD** | ✅ **Best** | ❌ Overkill | ❌ Overkill |
+
+---
+
+## 🎯 Perfect Use Cases for gRPC
+
+**1. Microservices Communication**
+```
+[API Gateway] --REST--> [Web Client]
+      |
+      +--gRPC--> [User Service]
+      +--gRPC--> [Order Service]  
+      +--gRPC--> [Payment Service]
+```
+
+**2. Real-time Applications**
+- Chat applications
+- Live dashboards
+- IoT data streaming
+- Gaming backends
+
+**3. Internal Service APIs**
+- High-frequency trading systems
+- Data processing pipelines
+- Machine learning model serving
+
+**4. Mobile Backends**
+- Efficient battery usage
+- Reduced bandwidth consumption
+- Offline-first architectures
+
+---
+
+## 🤔 When NOT to Use gRPC
+
+**Avoid gRPC when:**
+- Building public REST APIs (browser compatibility)
+- Simple CRUD applications
+- Working with legacy systems
+- Team lacks Protocol Buffers expertise
+- Need human-readable debugging (JSON is easier)
+
+---
+
+## 💡 Real-World Example: Why Netflix Uses gRPC
+
+Netflix processes **billions** of requests daily. Here's how gRPC helps:
+
+**Before gRPC (REST):**
+- 100ms average latency per service call
+- JSON parsing overhead
+- HTTP/1.1 connection limits
+
+**After gRPC:**
+- 50ms average latency (50% improvement!)
+- Binary serialization efficiency
+- HTTP/2 multiplexing benefits
+
+**The Math:** With 1 billion daily requests, 50ms saved per request = **13,888 hours saved daily!**
+
+---
+
+## 🧠 Knowledge Check
+
+Before moving to Protocol Buffers, make sure you understand:
+
+1. **What's the main transport protocol gRPC uses?** 
+   <details><summary>Click for answer</summary>HTTP/2</details>
+
+2. **Name 3 key advantages of gRPC over REST:**
+   <details><summary>Click for answer</summary>Performance (binary serialization), Type safety (Protocol Buffers), Built-in streaming</details>
+
+3. **When would you choose REST over gRPC?**
+   <details><summary>Click for answer</summary>Public APIs, simple CRUD operations, browser compatibility requirements</details>
+
+---
+
+## 🎯 Your Challenge
+
+Think about a project you're working on (or want to build). Consider:
+
+1. **What type of application is it?** (web app, mobile, microservices, etc.)
+2. **What are your performance requirements?**
+3. **Do you need real-time features?**
+4. **Is it internal or public-facing?**
+
+Based on these factors, would gRPC be a good fit? Why or why not?
+
+**Write your thoughts here:**
+```
+Project: ________________________________
+Type: ___________________________________
+Performance needs: ______________________
+Real-time requirements: _________________
+Internal/Public: _______________________
+gRPC fit (Y/N): ________________________
+Reasoning: ______________________________
+_______________________________________
+```
+
+---
+
+## 📚 Key Takeaways
+
+- **gRPC** = High-performance RPC framework using HTTP/2 + Protocol Buffers
+- **Best for:** Microservices, real-time apps, high-performance internal APIs
+- **Avoid for:** Public APIs, simple CRUD, legacy system integration
+- **Core benefits:** Performance, type safety, language agnostic, built-in features
+
+---
+
+## 🔗 What's Next?
+
+⏭️ **Next Lesson:** [Module 1.2 - Protocol Buffers Fundamentals](./lessons/module-1/1-2-protocol-buffers.md)
+
+---
+
+## 📖 Additional Resources
+
+- [Official gRPC Documentation](https://grpc.io/docs/)
+- [gRPC vs REST Performance Benchmarks](https://grpc.io/docs/guides/benchmarking/)
+- [HTTP/2 Explained](https://http2.github.io/http2-spec/)
+
+---
+
+**💡 Pro Tip:** As you progress through this course, create a personal `grpc-notes` repository to track your learning, code examples, and projects. This will become your valuable reference guide!
