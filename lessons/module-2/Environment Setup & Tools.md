@@ -777,11 +777,14 @@ Implement proper error handling for invalid languages or empty names.
 ### Challenge 3: Add Metadata
 Learn to send and receive metadata (headers) in your gRPC calls.
 
-<details>
-<summary>🔍 Click for hints</summary>
+{% hint style="success" %}
+**Hints**
+{% endhint %}
 
-**Challenge 1 Hint:**
-```protobuf
+<details>
+<summary>Challenge 1 Hint</summary>
+
+  ```protobuf
 message GoodbyeRequest {
   string name = 1;
 }
@@ -790,9 +793,14 @@ message GoodbyeResponse {
   string farewell = 1;
   int64 timestamp = 2;
 }
-```
 
-**Challenge 2 Hint:**
+```
+</details>
+
+<details>
+
+<summary>Challenge 2 Hint</summary>
+
 ```javascript
 // In service implementation
 if (!name || name.trim() === '') {
@@ -804,7 +812,12 @@ if (!name || name.trim() === '') {
 }
 ```
 
-**Challenge 3 Hint:**
+</details>
+
+<details>
+
+<summary>Challenge 3 Hint</summary>
+
 ```javascript
 // Server: reading metadata
 const metadata = call.metadata;
@@ -815,7 +828,6 @@ const metadata = new grpc.Metadata();
 metadata.add('client-type', 'test');
 client.SayHello(request, metadata, callback);
 ```
-
 </details>
 
 ---
