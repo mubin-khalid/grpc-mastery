@@ -243,7 +243,7 @@ Modern versions of Postman support gRPC natively:
 
 ---
 
-## 📁 Professional Project Structure
+## 📁 Project Structure
 
 Let's create a scalable project structure:
 
@@ -278,33 +278,36 @@ grpc-nodejs-mastery/
 
 ### Create Essential Files
 
-```bash
-# Create README for this exercise
-cat > README.md << 'EOF'
-# Module 2: gRPC Environment Setup
+{% code title="README.md" overflow="wrap" lineNumbers="true" %}
+
+```markdown
+‌# Module 2: gRPC Environment Setup
 
 This project verifies our gRPC development environment setup.
 
 ## Quick Start
-
-```bash
 npm install
 npm run dev
 ```
+
+{% endcode %}
+
 
 ## Scripts
 
 - `npm run dev`: Start development server
 - `npm test`: Run tests
 - `npm run proto`: Generate code from proto files
-EOF
+
 
 # Create package.json scripts
+```bash
 npm pkg set scripts.dev="nodemon src/server.js"
 npm pkg set scripts.start="node src/server.js"
 npm pkg set scripts.test="echo 'Tests not implemented yet'"
 npm pkg set scripts.proto="echo 'Proto compilation not configured yet'"
 ```
+
 
 ---
 
@@ -313,11 +316,10 @@ npm pkg set scripts.proto="echo 'Proto compilation not configured yet'"
 Let's build your first gRPC service to verify everything works!
 
 ### Step 1: Define the Service (hello.proto)
+{% code title="hello.proto" overflow="wrap" lineNumbers="true" %}
 
-```bash
-# Create proto file
-cat > src/proto/hello.proto << 'EOF'
-syntax = "proto3";
+```protobuf
+‌syntax = "proto3";
 
 package hello;
 
@@ -341,13 +343,14 @@ message HelloResponse {
   string message = 1;
   int64 timestamp = 2;
 }
-EOF
 ```
+
 
 ### Step 2: Implement the Server
 
-```bash
-cat > src/server.js << 'EOF'
+{% code title="src/server.js" overflow="wrap" lineNumbers="true" %}
+
+```javascript
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
 const path = require('path');
@@ -454,14 +457,17 @@ process.on('SIGINT', () => {
 
 // Start the server
 startServer();
-EOF
 ```
+
+{% endcode %}
+
 
 ### Step 3: Create a Test Client
 
-```bash
-cat > src/client.js << 'EOF'
-const grpc = require('@grpc/grpc-js');
+{% code title="src/client.js" overflow="wrap" lineNumbers="true" %}
+
+```javascript
+‌const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
 const path = require('path');
 
@@ -562,15 +568,18 @@ setTimeout(() => {
     testMultipleLanguages();
   }, 8000);
 }, 1000);
-EOF
+
 ```
+
+{% endcode %}
+
 
 ### Step 4: Create Utility Scripts
 
-```bash
-# Create a simple health check utility
-cat > src/utils/health-check.js << 'EOF'
-const grpc = require('@grpc/grpc-js');
+{% code title="src/utils/health-check.js" overflow="wrap" lineNumbers="true" %}
+
+```javascript
+‌const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
 const path = require('path');
 
@@ -624,11 +633,13 @@ function checkServerHealth() {
 }
 
 checkServerHealth();
-EOF
+
+```
+
+{% endcode %}
 
 # Add health check script to package.json
 npm pkg set scripts.health="node src/utils/health-check.js"
-```
 
 ---
 
@@ -731,16 +742,16 @@ node --version  # Verify
 
 Mark each item as you verify it works:
 
-- [ ] **Node.js 14+** installed and active
-- [ ] **gRPC packages** installed successfully
-- [ ] **Project structure** created properly
-- [ ] **Hello World server** starts without errors
-- [ ] **Client** can connect and make calls
-- [ ] **Streaming RPC** works correctly
-- [ ] **grpcurl** can connect and make calls
-- [ ] **Health check** passes
-- [ ] **Development scripts** work (npm run dev, etc.)
-- [ ] **VS Code extensions** installed and working
+- [x] **Node.js 14+** installed and active
+- [x] **gRPC packages** installed successfully
+- [x] **Project structure** created properly
+- [x] **Hello World server** starts without errors
+- [x] **Client** can connect and make calls
+- [x] **Streaming RPC** works correctly
+- [x] **grpcurl** can connect and make calls
+- [x] **Health check** passes
+- [x] **Development scripts** work (npm run dev, etc.)
+- [x] **VS Code extensions** installed and working
 
 ---
 
