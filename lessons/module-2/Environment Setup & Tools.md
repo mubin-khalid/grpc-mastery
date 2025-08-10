@@ -779,7 +779,6 @@ Learn to send and receive metadata (headers) in your gRPC calls.
 
 {% hint style="success" %}
 **Hints**
-{% endhint %}
 
 <details>
 <summary>Challenge 1 Hint</summary>
@@ -829,7 +828,7 @@ metadata.add('client-type', 'test');
 client.SayHello(request, metadata, callback);
 ```
 </details>
-
+{% endhint %}
 ---
 
 ## 📚 Key Takeaways
