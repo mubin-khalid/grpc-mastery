@@ -100,9 +100,8 @@ mkdir -p {lessons,exercises,projects,notes,tools}
 
 {% code title=".gitignore" overflow="wrap" lineNumbers="true" %}
 
-```gitignore
 ‌## Create .gitignore
-cat > .gitignore << EOF
+```gitignore
 ### Dependencies
 node_modules/
 npm-debug.log*
@@ -321,8 +320,7 @@ Let's build your first gRPC service to verify everything works!
 
 ### Step 1: Define the Service (hello.proto)
 {% code title="hello.proto" overflow="wrap" lineNumbers="true" %}
-
-```protobuf
+```proto
 ‌syntax = "proto3";
 
 package hello;
@@ -348,7 +346,6 @@ message HelloResponse {
   int64 timestamp = 2;
 }
 ```
-
 
 ### Step 2: Implement the Server
 
