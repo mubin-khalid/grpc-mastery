@@ -183,7 +183,7 @@ _______________________________________
 
 ## 🔗 What's Next?
 
-⏭️ **Next Lesson:** [Module 1.2 - Protocol Buffers Fundamentals](./lessons/module-1/1-2-protocol-buffers.md)
+⏭️ **Next Lesson:** [Module 1.2 - Protocol Buffers Fundamentals](./1-2-protocol-buffers.md)
 
 ---
 
