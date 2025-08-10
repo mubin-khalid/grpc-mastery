@@ -320,7 +320,8 @@ Let's build your first gRPC service to verify everything works!
 
 ### Step 1: Define the Service (hello.proto)
 {% code title="hello.proto" overflow="wrap" lineNumbers="true" %}
-```proto
+
+```bash
 ‌syntax = "proto3";
 
 package hello;
