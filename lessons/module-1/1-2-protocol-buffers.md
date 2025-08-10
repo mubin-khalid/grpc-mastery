@@ -491,7 +491,7 @@ message Order {
 
 ## 🔗 What's Next?
 
-⏭️ **Next Lesson:** [Module 1.3 - gRPC Architecture](./lessons/module-1/1-3-grpc-architecture.md)
+⏭️ **Next Lesson:** [Module 1.3 - gRPC Architecture](./1-3-grpc-architecture.md)
 
 ---
 
