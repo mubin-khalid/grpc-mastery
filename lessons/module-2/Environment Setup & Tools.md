@@ -96,37 +96,41 @@ git init
 
 # Create basic structure
 mkdir -p {lessons,exercises,projects,notes,tools}
+```
 
-# Create .gitignore
+{% code title=".gitignore" overflow="wrap" lineNumbers="true" %}
+
+```gitignore
+‌## Create .gitignore
 cat > .gitignore << EOF
-# Dependencies
+### Dependencies
 node_modules/
 npm-debug.log*
 
-# Environment files
+### Environment files
 .env
 .env.local
 
-# IDE files
+### IDE files
 .vscode/settings.json
 .idea/
 
-# OS files
+### OS files
 .DS_Store
 Thumbs.db
 
-# Build outputs
+### Build outputs
 dist/
 build/
 *.tgz
 
-# Logs
+### Logs
 logs/
 *.log
-EOF
+
 ```
 
----
+{% endcode %}
 
 ## 📦 Installing gRPC Packages
 
